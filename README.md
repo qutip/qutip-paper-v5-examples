@@ -1,12 +1,12 @@
 # QuTiP 5 paper examples
-A selection of examples released with the QuTiP 5 paper,  available on the ArXiV at...
+A selection of examples released with the QuTiP 5 paper,  available on the ArXiV at https://arxiv.org/abs/2412.04705
 
 These examples are provided in a unmaintained static format, alongside a environment requirements file for future reproducability. 
 Continously maintained and documented versions of the main examples are available in the qutip tutorials repository.
 
 Most examples here will work with the pinned versions in the environment.yml or requirements.txt file. 
-However, we also provide some alternative versions of the examples using the environments class based on the current development version of github, in the
-/environment_examples_dev/ folder, as well as an example of `mcsolve()` using JAX which requires the development versions of QuTiP-JAX  and QuTiP.
+However, we also provide some alternative versions of the examples using the environments class based on the latest release (5.1.0) or development version on github, in the
+/environment_examples_dev/ folder, as well as an example of `mcsolve()` using JAX which requires the development versions of both QuTiP-JAX  and QuTiP.
 
 
 If you use Anaconda, you can install the dependencies for this repository with
@@ -29,7 +29,7 @@ List of files and their purpose:
 
 - enrstates.py:  Basic example of ENR states.
 
-- jax-countstats.py: An example of how to use qutip-jax + jax Auto-diff to calculate counting statistics from a master equation.
+- jax-countstats.py: An example of how to use QuTiP-JAX + JAX Auto-diff to calculate counting statistics from a master equation.
 
 - jax-mesolve.py: Basic setup of an Ising spin chain model, used as a foundation for the GPU benchmark results in the QuTiP 5 paper in Fig 4.
 
@@ -47,15 +47,15 @@ List of files and their purpose:
 
 - qip_renderer.py: Basic example of new QuTiP-QIP circuit plotting functionality. Used to generate fig. 18.
 
-- qoc.py: Example of new optimal control methods from qutip-qoc. Used to generate Fig. 17.
+- qoc.py: Example of new optimal control methods from QuTiP-QOC. Used to generate Fig. 17.  Note, see this issue if using QuTiP-QOC with Anaconda on a windows environment (https://github.com/qutip/qutip-qoc/issues/30)
 
-- qutipqip.py: A more involved example of how to use qutip-qip for quantum simulation. Used to generate figs. 21-24.
+- qutipqip.py: A more involved example of how to use QuTiP-QIP for quantum simulation. Used to generate figs. 21-24.
 
 - smesolve.py: A basic example of how to use the stochastic master equation solver. Used to generate Fig. 9.
 
 - solver.py: A basic example of how to use the new solver interface.
 
-- /environment_examples/environment.py: A utility file for the new environment class interface. Replaced by latest official qutip release.
+- /environment_examples/environment.py: A utility file for the new environment class interface. Replaced by latest official QuTiP 5.1.0 release.
 
 - /environment_examples/heom_example.py: A basic example of how to use the new envirionment interface with the HEOM solver. Used to generate Fig. 10 and 11.
 
@@ -67,7 +67,7 @@ The alternative development versions of the last examples, and the jax-based mcs
 
 - /environment_examples_dev/
 
-but these will require updating qutip and qutip-jax to the development versions, which can be achieved with:
+The environment-class based examples require QuTiP 5.1.0 or the development release, while jax-mcsolve.py requires the development version of both QuTiP and  QuTiP-JAX, which can be achieved with:
 
 ```shell
 pip install git+https://github.com/qutip/qutip.git
