@@ -5,8 +5,7 @@ These examples are provided in a unmaintained static format, alongside a environ
 Continously maintained and documented versions of the main examples are available in the qutip tutorials repository.
 
 Most examples here will work with the pinned versions in the environment.yml or requirements.txt file. 
-However, we also provide some alternative versions of the examples using the environments class based on the latest release (5.1.0) or development version on github, in the
-/environment_examples_dev/ folder, as well as an example of `mcsolve()` using JAX which requires the development versions of both QuTiP-JAX  and QuTiP.
+
 
 
 If you use Anaconda, you can install the dependencies for this repository with
@@ -25,7 +24,7 @@ pip install -r requirements.txt
 
 List of files and their purpose:
 
-- enr_waveguide.py:  An example of how to use ENR states to simulate a qubit emitting into a waveguide. Reproduces figs 15 and 16.
+- enr_waveguide.py:  An example of how to use ENR states to simulate a qubit emitting into a waveguide. Reproduces figs 16 and 17.
 
 - enrstates.py:  Basic example of ENR states.
 
@@ -45,31 +44,18 @@ List of files and their purpose:
 
 - p_Ising_with_drive_Floquet.py: Benchmarking of Floquet states versus system size with the Ising model. Used to generate fig. 8.
 
-- qip_renderer.py: Basic example of new QuTiP-QIP circuit plotting functionality. Used to generate fig. 18.
+- qip_renderer.py: Basic example of new QuTiP-QIP circuit plotting functionality. Used to generate fig. 19.
 
-- qoc.py: Example of new optimal control methods from QuTiP-QOC. Used to generate Fig. 17.  Note, see this issue if using QuTiP-QOC with Anaconda on a windows environment (https://github.com/qutip/qutip-qoc/issues/30)
+- qoc.py: Example of new optimal control methods from QuTiP-QOC. Used to generate Fig. 18.  Note, see this issue if using QuTiP-QOC with Anaconda on a windows environment (https://github.com/qutip/qutip-qoc/issues/30)
 
-- qutipqip.py: A more involved example of how to use QuTiP-QIP for quantum simulation. Used to generate figs. 21-24.
+- qutipqip.py: A more involved example of how to use QuTiP-QIP for quantum simulation. Used to generate figs. 22-25.
 
 - smesolve.py: A basic example of how to use the stochastic master equation solver. Used to generate Fig. 9.
 
 - solver.py: A basic example of how to use the new solver interface.
 
-- /environment_examples/environment.py: A utility file for the new environment class interface. Replaced by latest official QuTiP 5.1.0 release.
+- heom_example.py: A basic example of how to use the new envirionment interface with the HEOM solver. Used to generate Fig. 10 and 12.
 
-- /environment_examples/heom_example.py: A basic example of how to use the new envirionment interface with the HEOM solver. Used to generate Fig. 10 and 11.
+- heom_transition.py:  A more involved example of how to use the fitting features to capture the spin-boson phase transition with the HEOM solver. Used to generate Fig. 13.
 
-- /environment_examples/heom_transition.py:  A more involved example of how to use the fitting features to capture the spin-boson phase transition with the HEOM solver. Used to generate Fig. 12
-
-- /environment_examples/mesolvedriven.py: An example of how to model driven systems with mesolve and the HEOM solver. Used to generate Fig. 3.
-
-The alternative development versions of the last examples, and the jax-based mcsolve example, are available in:
-
-- /environment_examples_dev/
-
-The environment-class based examples require QuTiP 5.1.0 or the development release, while jax-mcsolve.py requires the development version of both QuTiP and  QuTiP-JAX, which can be achieved with:
-
-```shell
-pip install git+https://github.com/qutip/qutip.git
-pip install git+https://github.com/qutip/qutip-jax.git
-```
+- mesolvedriven.py: An example of how to model driven systems with mesolve and the HEOM solver. Used to generate Fig. 3.

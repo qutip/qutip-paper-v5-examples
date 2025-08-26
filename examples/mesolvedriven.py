@@ -72,7 +72,7 @@ lambd = np.sqrt(
 bath = UnderDampedEnvironment(lam=lambd, w0=w0, gamma=gamma_heom, T=0)
 
 # To handle zero-temperature underdamped bath, fit its correlation function
-exp_bath, fit_info = bath.approx_by_cf_fit(fit_times, Ni_max=1, Nr_max=2, target_rsme=None)
+exp_bath, fit_info = bath.approximate("cf", fit_times, Ni_max=1, Nr_max=2, target_rmse=None)
 print(fit_info['summary'])
 
 
@@ -183,7 +183,7 @@ fit_times = np.linspace(0, 5, 1000)  # range for correlation function fit
 
 # To handle zero-temperature underdamped, fit its correlation function
 
-exp_bath, fit_info = bath.approx_by_cf_fit(fit_times, Ni_max=1, Nr_max=2, target_rsme=None)
+exp_bath, fit_info = bath.approximate("cf", fit_times, Ni_max=1, Nr_max=2, target_rmse=None)
 print(fit_info['summary'])
 
 
