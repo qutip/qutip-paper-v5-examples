@@ -6,7 +6,7 @@ from qutip import *
 from qutip.solver.heom import (
     HEOMSolver,
 )
-from environment import BosonicEnvironment
+from qutip import BosonicEnvironment
 colors = [BLUE, ORANGE, GREEN, PURPLE, GRAY, SKY_BLUE, VERMILLION]
 eps = 0.1  # small system energy
 
@@ -59,22 +59,22 @@ Q = sigmaz()
 Ttot = 1200
 # Times to solve for:
 tlist = np.linspace(0, Ttot, 1000)
-rho0 = basis(2, 0) * basis(2, 0).dag()
+rho0 = basis(2, 0) * basis(2, 0).dag()  
 
 models = []
 for i in range(len(alphas)):
     env = BosonicEnvironment.from_spectral_density(
         lambda w: J(w, alphas[i]), wMax=50, T=T)
-    cfit, fitinfo = env.approx_by_cf_fit(
-        tlist=t, Ni_max=1, Nr_max=2, target_rsme=None, full_ansatz=True
+    cfit, fitinfo = env.approximate("cf",
+        tlist=t, Ni_max=1, Nr_max=2, target_rmse=None, full_ansatz=True, maxfev=int(1e9)
     )
-    bath = cfit.to_bath(Q)
+    
     print(fitinfo["summary"])
     options = {'nsteps': 15000, 'store_states': True,
                 'rtol': 1e-7, 'atol': 1e-7}
     # Number of levels of the hierarchy to retain:
     NC = NCs[i]  # this is an importance covvergence parameter
-    HEOMMats = HEOMSolver(Hsys, [bath], NC, options=options)
+    HEOMMats = HEOMSolver(Hsys, (cfit, Q), NC, options=options)
     resultMats = HEOMMats.run(rho0, tlist)
     models.append(resultMats)
 
